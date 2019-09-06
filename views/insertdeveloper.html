@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<h1>
+    <a href="/">Home</a>
+    <a href="/getalltasks">Get All Tasks</a>
+    <a href="/deletetask">Delete Task</a>
+    <a href="/deletealltask">Delete Completed Tasks</a></br></br>
+    <a href="/updatetask">Update Tasks</a>
+    <a href="/getalldev">Get All Developer</a>
+</h1>
+
+<form action="/addnewdev" method="POST">
+    First Name <input type="text" method="POST" name="devfName" /> </br></br>
+    Last Name <input type="text" method="POST" name="devlName" /> </br></br>
+    Level <input list ="lstatus" method="POST" name="devLevel" />
+    <datalist id="lstatus">
+        <option value="BEGINNER">
+        <option value="EXPERT">
+    </datalist></br></br>
+    Address State<input type="text" method="POST" name="devState" /> </br></br>
+    Address Suburb<input type="text" method="POST" name="devSuburb" /> </br></br>
+    Address Street<input type="text" method="POST" name="devStreet" /> </br></br>
+    Address Unit<input type="text" method="POST" name="devUnit" /> </br></br>
+    <input type="submit" value="Submit" /> </br>
+</form>
+</body>
+
