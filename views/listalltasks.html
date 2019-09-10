@@ -20,12 +20,12 @@
 <h3>
     <table>
         <tr>
-            <td>Task ID</td>
-            <td>Task Name</td>
-            <td>Task Assign</td>
-            <td>Task Data</td>
-            <td>Task Status</td>
-            <td>Task Description</td>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Task Assign</th>
+            <th>Task Data</th>
+            <th>Task Status</th>
+            <th>Task Description</th>
         </tr>
         <% for ( var i =0; i< taskDb.length;i++){ %>
         <tr>
@@ -36,7 +36,7 @@
                 <%= taskDb[i].taskName %>
             </td>
             <td>
-                <%= taskDb[i].taskAssign %>
+                <%= taskDb[i].taskAssign.name.firstName + ' ' + taskDb[i].taskAssign.name.lastName %>
             </td>
             <td>
                 <%= taskDb[i].taskDate %>

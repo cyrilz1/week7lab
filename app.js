@@ -68,7 +68,7 @@ app.get('/additem/:whID/:name/:cost/:quantity', function(req,res){
 
 app.get('/getItemDetails', function(req,res){
     Item.find().populate('Warehouse').exec(function(err,data){
+        if (err) throw err;
         res.send(data);
     })
 });
-

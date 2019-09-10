@@ -7,8 +7,8 @@ var taskSchema = mongoose.Schema({
         required: true
     },
     taskAssign: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Developer'
     },
     taskDate: Date,
     taskStatus: {

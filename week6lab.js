@@ -53,13 +53,20 @@ app.post('/addnewtasks', function(req,res){
 
 
 
-app.get('/getalltasks', function (req, res) {
-    task.find({}, function(err,docs){
-        if (!err){
-            res.render('listalltasks.html', {taskDb: docs});
-            // console.log(docs.length);
-        }
-    });
+// app.get('/getalltasks', function (req, res) {
+//     task.find({}, function(err,docs){
+//         if (!err){
+//             res.render('listalltasks.html', {taskDb: docs});
+//             // console.log(docs.length);
+//         }
+//     });
+// });
+
+app.get('/getalltasks', function(req,res){
+    task.find({}).populate('taskAssign').exec(function(err,docs){
+        if (err) throw err;
+        res.render('listalltasks.html', {taskDb: docs});
+    })
 });
 
 app.get('/addnewdev', function (req, res) {
@@ -103,7 +110,7 @@ app.get('/deletetask', function(req,res){
 
 //Delete task by taskID
 app.post('/deletetask', function(req,res){
-   task.deleteOne({'_id': req.body.taskid}, function(err,doc){
+   task.findByIdAndDelete({'_id': req.body.taskid}, function(err,doc){
        console.log("Deleted successfully")
    });
    res.redirect('/getalltasks');
