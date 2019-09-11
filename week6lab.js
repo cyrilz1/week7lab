@@ -135,3 +135,12 @@ app.post('/updatetask', function(req,res){
     })
     res.redirect('/getalltasks');
 });
+
+app.get('/getsorttask', function(req,res){
+    let sortDesc = {taskName: -1}
+    task.find({'taskStatus':'Completed'}).populate('taskAssign').sort(sortDesc).limit(3).exec(function(err,docs){
+        if (err) throw err;
+        // res.send(docs);
+        res.render('listalltasks.html', {taskDb: docs})
+    })
+});
